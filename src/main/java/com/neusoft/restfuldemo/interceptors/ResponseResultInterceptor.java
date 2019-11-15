@@ -3,6 +3,7 @@ package com.neusoft.restfuldemo.interceptors;
 import com.neusoft.restfuldemo.vo.ResultVO;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.lang.Nullable;
@@ -31,6 +32,7 @@ public class ResponseResultInterceptor implements ResponseBodyAdvice<Object> {
     @Nullable
     @Override
     public Object beforeBodyWrite(@Nullable Object o, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+        ResponseEntity.ok().header("你好");
         return ResultVO.success(o);
     }
 }
